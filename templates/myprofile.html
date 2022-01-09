@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+{% block title %}My Profile
+{% endblock %}
+{% block content %}
+<h1>MY PROFILE</h1>
+<h2>First Name: {{user.firstname}}</h2>
+<h2>Last Name: {{user.lastname}}</h2>
+<h2>Email: {{user.email}}</h2>
+<h3>Summary</h3>
+<p>{{user.summary}}</p>
+
+
+<form method="post">
+    <div class="mb-3">
+    <h3>Edit Your Profile</h3>
+    <label for="email" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter a new email" value="{{user.email}}">
+</div>
+<div class="mb-3">
+    <label for="Summary" class="form-label">Edit Summary</label>
+    <textarea class="form-control" id="summary" name="summary" rows="5" value="{{user.summary}}"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin: 10px; background-color: #a2a745;">Apply Changes</button>
+</form>
+<h1>MY REVIEWS</h1>
+{% for item in reviews %}
+<div style="margin: 5px; background-color: bisque;">
+    <h3>From {{item.sender_name}} on {{item.date}} </h3>
+    <p>{{item.review}}
+    </p>
+    <p>{{item.star}} Stars</p>
+</div>
+{% endfor %}
+{% endblock %}
+

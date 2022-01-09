@@ -1,0 +1,58 @@
+{% extends "myprofile.html" %}
+{% block title%}
+{{usr.firstname}} {{usr.lastname}}'s Profile
+{% endblock%}
+{% block content %}
+<div class="col"><h1>PROFILE</h1>
+<h2>First Name: {{usr.firstname}}</h2>
+<h2>Last Name: {{usr.lastname}}</h2>
+<h2>Email: {{usr.email}}</h2>
+<h3>Summary</h3>
+<p>{{usr.summary}}</p></div>
+<div class="col">
+<form action="" method="POST">
+<div class="mb-3">
+    <label for="Review" class="form-label">Review</label>
+    <textarea class="form-control" id="review" name="review" rows="3"></textarea>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="star" id="5star" value="5" checked>
+    <label class="form-check-label" for="5star">
+        5 Stars
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="star" id="4star" value="4">
+    <label class="form-check-label" for="4star">
+        4 Stars
+    </label>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="star" id="3star" value="3">
+        <label class="form-check-label" for="3star">
+            3 Stars
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="star" id="2star" value="2">
+        <label class="form-check-label" for="2star">
+            2 Stars
+        </label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="star" id="1star" value="1">
+            <label class="form-check-label" for="1star">
+                1 Star
+            </label>
+        </div>
+        
+<button type="submit" class="btn-primary">SEND</button>
+</form>
+</div>
+
+<h1>Reviews</h1>
+{% for item in reviews %}
+<div style="margin: 5px; background-color: bisque;"><h3>From {{item.sender_name}} on {{item.date}} </h3>
+    <p>{{item.review}}
+        </p>
+    <p>{{item.star}} Stars</p></div>
+{% endfor %}
+{% endblock %}

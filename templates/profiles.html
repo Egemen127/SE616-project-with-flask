@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title%} Profile Search {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col" id="col1">
+            <h1>Search Filters</h1>
+            <form action="" method="post">
+                <div class="mb-3">
+                    <label for="firstname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name">
+                </div>
+                <div class="mb-3">
+                    <label for="lastname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname"placeholder="Last Name">
+                    <input type="submit" style="margin: 10px; " class="btn btn-primary" value="Search">
+                </div>
+            </form>
+        </div>
+        <div class="col" id="col2">
+           <h1>Results</h1>
+       
+        
+        {% for item in values %}
+        <div style="margin: 5px; background-color: bisque;"><a href="/userprofile/{{item.id}}">Name: {{item.firstname}},Last Name:{{item.lastname}}, Email: {{item.email}}</a></div>
+        {% endfor %}
+        
+
+        </div>
+        <div class="col" id="col3">
+            <h1>Chat Messages</h1>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- Overrides the block in index.html -->

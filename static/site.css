@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(205, 250, 43);
+    display: grid;
+}
+col{
+    text-align: center;
+    
+}
+#col1{
+    background-color: rgb(88, 214, 53);
+    min-height: 1000px
+}
+#col2{
+    background-color: maroon
+}
+#col3{
+    background-color: rgb(73, 164, 60);
+}
+h1{
+    text-align: center;
+}
+
+.form-control{
+max-width: 300px;
+
+}
+.g-col-4{
+    border: solid;
+}
